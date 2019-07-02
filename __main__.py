@@ -1,3 +1,4 @@
+import os
 import ssl
 import sys
 import time
@@ -10,6 +11,9 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 from collection import crawler
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def crawling_pelicana():
@@ -90,7 +94,7 @@ def crawloing_nene():
 
     # store
     table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
-    table.to_csv('__results__/nene.csv', encoding='utf-8', index=True)
+    table.to_csv('/root/crawling-results/nene.csv', encoding='utf-8', index=True)
     for t in results:
         print(t)
 
@@ -169,6 +173,7 @@ def crawling_goobne():
     # store
     table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
     table.to_csv('__results__/goobne.csv', encoding='utf-8', index=True)
+
 
 if __name__ == '__main__':
     # crawling_pelicana()
